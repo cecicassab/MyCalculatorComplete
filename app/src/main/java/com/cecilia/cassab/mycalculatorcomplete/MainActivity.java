@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void operator(View v){
         msg = (EditText) findViewById(R.id.caixa);
-        if(!tela.isEmpty()) {
+        if(!tela.isEmpty() && op.isEmpty()) {
             String tag = v.getTag().toString();
             op = tag;
             n1 = Double.parseDouble(tela);

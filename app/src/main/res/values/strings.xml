@@ -16,6 +16,6 @@
     <string name="multplicacao">X</string>
     <string name="divisao">/</string>
     <string name="clear">C</string>
-    <string name="limpa">L</string>
+    <string name="limpa">«</string>
     <string name="igual">=</string>
 </resources>
