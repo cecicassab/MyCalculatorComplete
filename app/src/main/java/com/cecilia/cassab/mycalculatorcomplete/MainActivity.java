@@ -62,31 +62,35 @@ public class MainActivity extends AppCompatActivity {
         if(!tela.isEmpty()) {
             String tag = v.getTag().toString();
             String[] elems = tela.split(Pattern.quote(op));
-            n2 = Double.parseDouble(elems[1]);
-            Double result = 0.0;
-            boolean ok = true;
-            switch (op) {
-                case "+":
-                    result = n1 + n2;
-                    break;
-                case "-":
-                    result = n1 - n2;
-                    break;
-                case "/":
-                    if (n2 != 0)
-                        result = n1 / n2;
-                    else
-                        ok = false;
-                    break;
-                default:
-                    result = n1 * n2;
-                    break;
+            if (elems.length == 1) tela = "ERROR";
+            else {
+                n2 = Double.parseDouble(elems[1]);
+                Double result = 0.0;
+                boolean ok = true;
+                switch (op) {
+                    case "+":
+                        result = n1 + n2;
+                        break;
+                    case "-":
+                        result = n1 - n2;
+                        break;
+                    case "/":
+                        if (n2 != 0)
+                            result = n1 / n2;
+                        else
+                            ok = false;
+                        break;
+                    default:
+                        result = n1 * n2;
+                        break;
+                }
+                if (ok)
+                    tela = result.toString();
+                else
+                    tela = "ERROR";
             }
-            if (ok)
-                tela = result.toString();
-            else
-                tela = "ERROR";
             res = true;
+            op = "";
         }
         msg.setText(tela);
     }
